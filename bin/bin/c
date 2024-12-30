@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# ~/bin/c.rb
+require 'io/console'
+raw_branches = `git branch`.split("\n")
+selected = raw_branches.find_index { |b| /\*/ === b }
+branches = raw_branches.map { |b| b.gsub(/(\*| ) /, '') }
+len = branches.length
+
+loop do
+  branches.each_with_index do |b, i|
+    if i == selected
+      print '* '
+    else
+      print '  '
+    end
+
+    puts b
+  end
+  char =  STDIN.getch
+  case char
+  when "\r"
+    system("git checkout #{branches[selected]}")
+    break
+  when 'j', 'k'
+    m = char == 'j' ? 1 : -1
+    selected = (selected + m) % len
+    print "\033[#{len}A"
+  when 'd'
+    system("git branch -d #{branches[selected]}")
+    break
+  when 'D'
+    system("git branch -D #{branches[selected]}")
+    break
+  end
+end

@@ -1,0 +1,18 @@
+[submodule "vim/dot-vim/bundle/supertab"]
+	path = vim/dot-vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vim/dot-vim/bundle/ctrlp.vim"]
+	path = vim/dot-vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/dot-vim/bundle/vim-sensible"]
+	path = vim/dot-vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "vim/dot-vim/bundle/context.vim"]
+	path = vim/dot-vim/bundle/context.vim
+	url = https://github.com/wellle/context.vim
+[submodule "vim/dot-vim/bundle/ack.vim"]
+	path = vim/dot-vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
+[submodule "vim/dot-vim/bundle/nerdtree"]
+	path = vim/dot-vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
