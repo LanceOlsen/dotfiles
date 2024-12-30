@@ -8,6 +8,12 @@ touch foo/dot-foorc
 stow -t ~ --dotfiles --adopt -v foo
 ```
 
+Create symlinks on the current host for a package
+
+```
+stow -t ~ --dotfiles -v foo
+```
+
 Delete and restow. Useful when upstream files were deleted
 
 ```
