@@ -1,0 +1,156 @@
+{
+  "profiles": [
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "Press Hyper + C to launch Google Chrome",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a 'Google Chrome'" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + T to launch iTerm",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a 'iTerm'" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + S to launch Slack",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "shell_command": "open -a 'Slack'" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + J to Command + `",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": ["left_command"]
+                }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + K to Command + Shift + `",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": ["left_command", "left_shift"]
+                }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + H to Command + Shift + [ (left application tab)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{
+                  "key_code": "open_bracket",
+                  "modifiers": ["left_command", "left_shift"]
+                }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + L to Command + Shift + ] (right application tab)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{
+                  "key_code": "close_bracket",
+                  "modifiers": ["left_command", "left_shift"]
+                }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Press Hyper + H to Command + Shift + ] (right application tab)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "left_command", "left_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{
+                  "key_code": "close_bracket",
+                  "modifiers": ["left_command", "left_shift"]
+                }],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+    }
+  ]
+}
