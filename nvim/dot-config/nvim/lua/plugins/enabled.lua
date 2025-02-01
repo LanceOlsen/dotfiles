@@ -3,19 +3,15 @@ return {
     "jeetsukumaran/vim-indentwise"
   },
   {
+    -- Autocomplete
     "hrsh7th/nvim-cmp",
-    config = function()
-      require("cmp").setup({
-        completion = {
-          autocomplete = false,
-        },
-      })
-    end,
   },
   {
+    -- Git commands
     "tpope/vim-fugitive"
   },
   {
+    -- Render markdown files in a browser window
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
@@ -25,6 +21,7 @@ return {
     ft = { "markdown" },
   },
   {
+    -- Fancy start screen
     "mhinz/vim-startify",
     config = function()
       -- Configuration options for vim-startify
@@ -33,6 +30,7 @@ return {
     end,
   },
   {
+    -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
@@ -53,6 +51,7 @@ return {
     },
   },
   {
+    -- Display outer context by indentation at the top of the screen
     "wellle/context.vim"
   },
 }

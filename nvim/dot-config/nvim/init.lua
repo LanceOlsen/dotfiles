@@ -1,8 +1,18 @@
 -- Bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+-- Reload changed files when focusing in (useful when changing branches)
+vim.api.nvim_create_autocmd("FocusGained", {
+  callback = function()
+    vim.cmd("checktime")
+  end,
+})
+
 -- Require solargraph
 require("lspconfig").solargraph.setup({
+  on_attach = function(client)
+    client.server_capabilities.documentHighlightProvider = false
+  end,
   settings = {
     solargraph = {
       autoformat = false,
@@ -14,6 +24,23 @@ require("lspconfig").solargraph.setup({
     formatting = false,
   },
 })
+
+-- Setup for vim-cmp
+local cmp = require('cmp')
+cmp.setup({
+  completion = {
+    autocomplete = false,
+  },
+  mapping = {
+    -- Use <Tab> to manually trigger completion
+    ['<S-Tab>'] = cmp.mapping(function()
+      if not cmp.visible() then
+        cmp.complete()
+      end
+    end, {'i','s'}),
+  },
+})
+
 
 -- Setup for telescope
 local telescope = require("telescope")
@@ -29,8 +56,21 @@ telescope.load_extension("live_grep_args")
 
 -- Use / to search tree like a normal buffer
 require("neo-tree").setup({
+  -- Close neo-tree after selecting a file
+  event_handlers = {
+    {
+      event = "file_open_requested",
+      handler = function()
+        -- auto close
+        -- vim.cmd("Neotree close")
+        -- OR
+        require("neo-tree.command").execute({ action = "close" })
+      end
+    },
+  },
   window = {
     mappings = {
+      -- Disable highlighting when searching in the neo-tree split
       ["/"] = function(state)
         local hlsearch = vim.v.hlsearch -- Save the current state of search highlighting
         vim.api.nvim_command("set nohlsearch") -- Disable search highlighting
@@ -56,6 +96,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.colorcolumn = "121"
 vim.opt.winbar = "%=%m %f"
+vim.opt.hidden = false -- Prevent changing buffers without saving
 
 --------------------
 -- NEOVIM OPTIONS --
@@ -114,7 +155,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>rl",
-  ':exe "!echo \'rspec %\':" . line(".") . "<bar> pbcopy"<CR>',
+  ':exe "!echo \'rspec %\':" . line(".") . "<bar> pbcopy"<CR><CR>',
   { noremap = true, silent = true }
 )
 
